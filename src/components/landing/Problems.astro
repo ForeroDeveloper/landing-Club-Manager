@@ -1,0 +1,89 @@
+---
+// src/components/landing/Problems.astro
+---
+
+<section id="problemas" class="py-24 relative overflow-hidden bg-background">
+  <!-- Subtle background glow -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-muted/50 pointer-events-none"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6 text-foreground tracking-tight">
+        ¿Te resulta familiar este caos?
+      </h2>
+      <p class="text-lg md:text-xl text-muted-foreground">
+        Administrar un club deportivo se ha convertido en un trabajo de oficina en lugar de una pasión en la cancha.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Problema 1 -->
+      <div class="bg-card border border-border rounded-2xl p-8 shadow-card hover:shadow-glow transition-shadow duration-300">
+        <div class="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-destructive"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"/><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="m2 16 6 6"/><circle cx="16" cy="9" r="2.9"/><circle cx="6" cy="5" r="3"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3">WhatsApp colapsado</h3>
+        <p class="text-muted-foreground">
+          Cientos de mensajes repetitivos respondiendo siempre lo mismo: horarios, pagos, ubicaciones de partidos y dudas de padres.
+        </p>
+      </div>
+
+      <!-- Problema 2 -->
+      <div class="bg-card border border-border rounded-2xl p-8 shadow-card hover:shadow-glow transition-shadow duration-300">
+        <div class="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-destructive"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Infierno en Excel</h3>
+        <p class="text-muted-foreground">
+          Pestañas infinitas intentando cuadrar quién pagó, quién debe y quién tiene los documentos al día. Un error y se pierde dinero.
+        </p>
+      </div>
+
+      <!-- Problema 3 -->
+      <div class="bg-card border border-border rounded-2xl p-8 shadow-card hover:shadow-glow transition-shadow duration-300">
+        <div class="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-destructive"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M15 2H9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1Z"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Asistencia en papel</h3>
+        <p class="text-muted-foreground">
+          Llevar el control en cuadernos que se pierden o se dañan. Nunca sabes exactamente quién asistirá al próximo partido o entrenamiento.
+        </p>
+      </div>
+
+      <!-- Problema 4 -->
+      <div class="bg-card border border-border rounded-2xl p-8 shadow-card hover:shadow-glow transition-shadow duration-300">
+        <div class="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-destructive"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Cobros incómodos</h3>
+        <p class="text-muted-foreground">
+          Estar persiguiendo a los padres para que paguen la mensualidad a tiempo. Un desgaste constante que afecta las relaciones.
+        </p>
+      </div>
+
+      <!-- Problema 5 -->
+      <div class="bg-card border border-border rounded-2xl p-8 shadow-card hover:shadow-glow transition-shadow duration-300">
+        <div class="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-destructive"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Documentación dispersa</h3>
+        <p class="text-muted-foreground">
+          Pedir fotos de documentos de identidad, permisos y fichas médicas una y otra vez porque no hay un lugar centralizado y seguro.
+        </p>
+      </div>
+
+      <!-- Problema 6 -->
+      <div class="bg-card border border-border rounded-2xl p-8 shadow-card hover:shadow-glow transition-shadow duration-300">
+        <div class="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-destructive"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Fugas financieras</h3>
+        <p class="text-muted-foreground">
+          Se pierde dinero por falta de seguimiento a pagos atrasados. Es imposible generar paz y salvos rápidos y sin errores manuales.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>

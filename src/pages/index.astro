@@ -2,34 +2,34 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/landing/Navbar.astro';
 import Hero from '../components/landing/Hero.astro';
-import Stats from '../components/landing/Stats.astro';
-import Features from '../components/landing/Features.astro';
-import Showcase from '../components/landing/Showcase.astro';
-import HowItWorks from '../components/landing/HowItWorks.astro';
+import Problems from '../components/landing/Problems.astro';
+import Solution from '../components/landing/Solution.astro';
 import AppScreenshots from '../components/landing/AppScreenshots.astro';
-import AppDownload from '../components/landing/AppDownload.astro';
+import Features from '../components/landing/Features.astro'; // Ahora son Beneficios
+import HowItWorks from '../components/landing/HowItWorks.astro';
 import Testimonials from '../components/landing/Testimonials.astro';
-import Pricing from '../components/landing/Pricing.astro';
+import Stats from '../components/landing/Stats.astro';
 import FAQ from '../components/landing/FAQ.astro';
 import CTA from '../components/landing/CTA.astro';
 import Footer from '../components/landing/Footer.astro';
+
+// Secciones ocultadas para maximizar CRO según la nueva estrategia:
+// import Showcase from '../components/landing/Showcase.astro';
+// import AppDownload from '../components/landing/AppDownload.astro';
+// import Pricing from '../components/landing/Pricing.astro';
 ---
 
-<Layout 
-	title="Club Sport Manager | Gestión para Clubes de Fútbol, Baloncesto, Tenis y más"
-	description="La plataforma SaaS definitiva para la administración de cualquier club deportivo. Control de pagos, asistencia y registro para fútbol, natación, artes marciales y más."
->
+<Layout>
 	<Navbar />
 	<main class="min-h-screen bg-background">
 		<Hero />
-		<Stats />
-		<Features />
-		<Showcase />
-		<HowItWorks />
+		<Problems />
+		<Solution />
 		<AppScreenshots />
-		<AppDownload />
+		<Features />
+		<HowItWorks />
 		<Testimonials />
-		<Pricing />
+		<Stats />
 		<FAQ />
 		<CTA />
 	</main>
