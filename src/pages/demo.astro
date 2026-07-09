@@ -86,7 +86,7 @@ import Footer from '../components/landing/Footer.astro';
                           <span class="text-xl mr-2 leading-none">🇨🇴</span>
                           <span class="text-sm font-bold text-muted-foreground">+57</span>
                         </div>
-                        <input type="tel" id="whatsapp" name="whatsapp" required pattern="^3\d{9}$" title="Ingresa 10 dígitos (ej: 3001234567)" maxlength="10" minlength="10" class="w-full h-12 rounded-r-xl border border-border bg-background px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-shadow outline-none placeholder:text-muted-foreground" placeholder="3001234567" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        <input type="tel" id="whatsapp" name="whatsapp" required pattern="3[0-9]{9}" title="Ingresa 10 dígitos (ej: 3001234567)" maxlength="10" minlength="10" class="w-full h-12 rounded-r-xl border border-border bg-background px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-shadow outline-none placeholder:text-muted-foreground" placeholder="3001234567" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                       </div>
                       <p class="text-[10px] text-muted-foreground mt-1">Ingresa únicamente los 10 dígitos de tu celular.</p>
                     </div>
@@ -225,3 +225,13 @@ import Footer from '../components/landing/Footer.astro';
     }
   });
 </script>
+
+<style is:global>
+  /* Forzar que Calendly ocupe todo el espacio disponible sin cortarse */
+  #calendly-container .calendly-inline-widget,
+  #calendly-container iframe {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 700px !important;
+  }
+</style>
