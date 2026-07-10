@@ -1,0 +1,454 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Generador de Cotizaciones | ClubSport Manager">
+  <!-- Topbar CRM -->
+  <header class="bg-primary text-primary-foreground sticky top-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 flex h-14 items-center justify-between">
+      <div class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <h1 class="font-bold text-lg tracking-tight">Cotizador Inteligente CSM</h1>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="inline-flex items-center rounded-full bg-black/20 px-2.5 py-0.5 text-xs font-medium text-white ring-1 ring-inset ring-white/10">Uso Interno Comercial</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="min-h-screen bg-muted/30 py-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Columna Izquierda: Controles -->
+        <div class="lg:col-span-4 space-y-6 sticky top-20">
+          
+          <!-- Tarjeta de Controles -->
+          <div class="bg-card rounded-2xl border border-border shadow-sm p-6">
+            <h2 class="text-base font-bold flex items-center gap-2 mb-5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              Parámetros de Cotización
+            </h2>
+            
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-foreground mb-1">Cantidad de jugadores</label>
+                <div class="relative">
+                  <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  </div>
+                  <input type="number" id="inp-jugadores" value="120" min="1" class="block w-full rounded-xl border-border bg-background pl-10 pr-3 py-2 text-sm focus:border-primary focus:ring-primary shadow-sm" />
+                </div>
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium text-foreground mb-1">Valor por jugador (COP)</label>
+                <div class="relative">
+                  <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                    <span class="text-muted-foreground sm:text-sm">$</span>
+                  </div>
+                  <input type="number" id="inp-valor" value="1800" min="0" step="100" class="block w-full rounded-xl border-border bg-background pl-8 pr-3 py-2 text-sm focus:border-primary focus:ring-primary shadow-sm" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-foreground mb-1">Cuota sugerida a padres (COP)</label>
+                <div class="relative">
+                  <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                    <span class="text-muted-foreground sm:text-sm">$</span>
+                  </div>
+                  <input type="number" id="inp-cuota" value="20000" min="0" step="1000" class="block w-full rounded-xl border-border bg-background pl-8 pr-3 py-2 text-sm focus:border-primary focus:ring-primary shadow-sm" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tarjeta ROI -->
+          <div class="bg-success/10 border border-success/20 rounded-2xl p-6 shadow-sm relative overflow-hidden">
+            <div class="absolute -right-6 -top-6 text-success/10">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            
+            <h3 class="text-success font-bold flex items-center gap-2 mb-3 relative z-10">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              Recuperación de Inversión
+            </h3>
+            
+            <div class="space-y-3 relative z-10 text-sm">
+              <div class="flex justify-between items-center pb-2 border-b border-success/20">
+                <span class="text-muted-foreground">Recaudo estimado:</span>
+                <span id="out-recaudo" class="font-bold text-foreground">--</span>
+              </div>
+              <div class="flex justify-between items-center pb-2 border-b border-success/20">
+                <span class="text-muted-foreground">Costo plataforma:</span>
+                <span id="out-costo-plataforma" class="font-bold text-destructive">--</span>
+              </div>
+              <div class="flex justify-between items-center pt-1">
+                <span class="font-bold text-success">Saldo a favor:</span>
+                <span id="out-saldo" class="font-black text-success text-base">--</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Columna Derecha: Dashboard y Mensaje -->
+        <div class="lg:col-span-8 space-y-6">
+          
+          <!-- Resumen de Planes -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            
+            <!-- Mensual -->
+            <div class="bg-card rounded-xl border border-border p-5 shadow-sm text-center">
+              <p class="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-2">Mensual</p>
+              <p id="out-mensual" class="text-2xl font-bold text-foreground">--</p>
+              <p class="text-xs text-muted-foreground mt-2">Mes a mes</p>
+            </div>
+
+            <!-- Trimestral -->
+            <div class="bg-card rounded-xl border border-border p-5 shadow-sm text-center relative overflow-hidden">
+              <div class="absolute top-0 right-0 bg-warning/20 text-warning text-[10px] font-bold px-2 py-1 rounded-bl-lg">10% OFF</div>
+              <p class="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-2">Trimestral</p>
+              <p id="out-trimestral" class="text-2xl font-bold text-foreground">--</p>
+              <p class="text-xs text-muted-foreground mt-2">Pago cada 3 meses</p>
+            </div>
+
+            <!-- Semestral -->
+            <div class="bg-card rounded-xl border border-border p-5 shadow-sm text-center relative overflow-hidden">
+              <div class="absolute top-0 right-0 bg-warning/20 text-warning text-[10px] font-bold px-2 py-1 rounded-bl-lg">20% OFF</div>
+              <p class="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-2">Semestral</p>
+              <p id="out-semestral" class="text-2xl font-bold text-foreground">--</p>
+              <p class="text-xs text-muted-foreground mt-2">Pago cada 6 meses</p>
+            </div>
+            
+            <!-- Anual (Destacado) -->
+            <div class="bg-primary text-primary-foreground rounded-2xl border-2 border-primary p-6 shadow-glow md:col-span-3 flex flex-col sm:flex-row items-center justify-between relative overflow-hidden">
+              <div class="absolute -right-4 -top-4 opacity-10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              
+              <div class="relative z-10 text-center sm:text-left mb-4 sm:mb-0">
+                <div class="inline-flex items-center rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-bold text-white mb-2">
+                  ⭐ Nuestra recomendación (30% OFF)
+                </div>
+                <p class="text-sm font-medium text-primary-foreground/80 uppercase tracking-wide">Plan Anual</p>
+                <p id="out-anual" class="text-4xl font-black mt-1">--</p>
+              </div>
+              
+              <div class="relative z-10 text-center sm:text-right">
+                <p class="text-sm font-medium text-primary-foreground/80">Equivalente por jugador</p>
+                <p id="out-anual-jugador" class="text-2xl font-bold mt-1">-- <span class="text-sm font-normal">/año</span></p>
+                <p id="out-mensual-jugador" class="text-sm font-medium text-primary-foreground/90 mt-1">Solo -- /mes</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Mensajes de WhatsApp -->
+          <div class="bg-card rounded-2xl border border-border shadow-sm flex flex-col h-[600px] overflow-hidden">
+            <div class="p-4 border-b border-border bg-muted/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <h2 class="text-base font-bold flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                Mensajes Comerciales
+              </h2>
+              
+              <!-- Tabs -->
+              <div class="flex p-1 bg-muted rounded-lg w-fit">
+                <button id="tab-completo" class="px-3 py-1.5 text-xs font-semibold rounded-md bg-background shadow-sm text-foreground transition-all">Mensaje Completo</button>
+                <button id="tab-secuencia" class="px-3 py-1.5 text-xs font-semibold rounded-md text-muted-foreground hover:text-foreground transition-all">Secuencia (3 Partes)</button>
+              </div>
+            </div>
+            
+            <div class="p-6 flex-1 overflow-y-auto bg-muted/10">
+              
+              <!-- Contenido Tab Completo -->
+              <div id="view-completo" class="flex flex-col h-full space-y-4">
+                <textarea id="whatsapp-message" class="flex-1 w-full rounded-xl border border-border bg-background p-4 text-sm font-medium text-foreground resize-none focus:outline-none focus:ring-2 focus:ring-primary/50 font-mono shadow-sm" spellcheck="false"></textarea>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <button id="btn-copy" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-4 py-3 text-sm font-semibold text-accent-foreground shadow-sm hover:bg-accent/80 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                    <span id="btn-copy-text">Copiar mensaje completo</span>
+                  </button>
+                  <button id="btn-whatsapp" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#20bd5a] transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg>
+                    Abrir WhatsApp
+                  </button>
+                </div>
+              </div>
+
+              <!-- Contenido Tab Secuencia -->
+              <div id="view-secuencia" class="hidden flex-col h-full space-y-6">
+                
+                <!-- Mensaje 1 -->
+                <div class="relative">
+                  <span class="absolute -top-3 left-4 bg-muted px-2 text-xs font-bold text-muted-foreground rounded-full border border-border">1. Introducción</span>
+                  <textarea id="msg-part-1" class="w-full h-32 rounded-xl border border-border bg-background p-4 pt-5 text-sm font-medium text-foreground resize-none focus:outline-none focus:ring-2 focus:ring-primary/50 font-mono shadow-sm" spellcheck="false"></textarea>
+                  <button onclick="copyMsg('msg-part-1', this)" class="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground shadow-sm hover:bg-accent/80 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                    <span>Copiar</span>
+                  </button>
+                </div>
+
+                <!-- Mensaje 2 -->
+                <div class="relative">
+                  <span class="absolute -top-3 left-4 bg-muted px-2 text-xs font-bold text-muted-foreground rounded-full border border-border">2. Propuesta</span>
+                  <textarea id="msg-part-2" class="w-full h-40 rounded-xl border border-border bg-background p-4 pt-5 text-sm font-medium text-foreground resize-none focus:outline-none focus:ring-2 focus:ring-primary/50 font-mono shadow-sm" spellcheck="false"></textarea>
+                  <button onclick="copyMsg('msg-part-2', this)" class="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground shadow-sm hover:bg-accent/80 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                    <span>Copiar</span>
+                  </button>
+                </div>
+
+                <!-- Mensaje 3 -->
+                <div class="relative">
+                  <span class="absolute -top-3 left-4 bg-muted px-2 text-xs font-bold text-muted-foreground rounded-full border border-border">3. Cierre y ROI</span>
+                  <textarea id="msg-part-3" class="w-full h-48 rounded-xl border border-border bg-background p-4 pt-5 text-sm font-medium text-foreground resize-none focus:outline-none focus:ring-2 focus:ring-primary/50 font-mono shadow-sm" spellcheck="false"></textarea>
+                  <button onclick="copyMsg('msg-part-3', this)" class="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-accent-foreground shadow-sm hover:bg-accent/80 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                    <span>Copiar</span>
+                  </button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // Exponer la función copyMsg al scope global para los botones inline
+  (window as any).copyMsg = function(id: string, btn: HTMLButtonElement) {
+    const textarea = document.getElementById(id) as HTMLTextAreaElement;
+    if (textarea) {
+      textarea.select();
+      navigator.clipboard.writeText(textarea.value).then(() => {
+        const span = btn.querySelector('span');
+        if (span) {
+          const original = span.textContent;
+          span.textContent = '¡Copiado!';
+          btn.classList.add('bg-success', 'text-success-foreground');
+          setTimeout(() => {
+            span.textContent = original;
+            btn.classList.remove('bg-success', 'text-success-foreground');
+          }, 2000);
+        }
+      });
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Inputs
+    const inpJugadores = document.getElementById('inp-jugadores') as HTMLInputElement;
+    const inpValor = document.getElementById('inp-valor') as HTMLInputElement;
+    const inpCuota = document.getElementById('inp-cuota') as HTMLInputElement;
+
+    // Outputs
+    const outMensual = document.getElementById('out-mensual');
+    const outTrimestral = document.getElementById('out-trimestral');
+    const outSemestral = document.getElementById('out-semestral');
+    const outAnual = document.getElementById('out-anual');
+    const outAnualJugador = document.getElementById('out-anual-jugador');
+    const outMensualJugador = document.getElementById('out-mensual-jugador');
+    const outRecaudo = document.getElementById('out-recaudo');
+    const outCostoPlataforma = document.getElementById('out-costo-plataforma');
+    const outSaldo = document.getElementById('out-saldo');
+    
+    // Textareas
+    const txtMessage = document.getElementById('whatsapp-message') as HTMLTextAreaElement;
+    const txtMsg1 = document.getElementById('msg-part-1') as HTMLTextAreaElement;
+    const txtMsg2 = document.getElementById('msg-part-2') as HTMLTextAreaElement;
+    const txtMsg3 = document.getElementById('msg-part-3') as HTMLTextAreaElement;
+
+    // Tabs
+    const tabCompleto = document.getElementById('tab-completo');
+    const tabSecuencia = document.getElementById('tab-secuencia');
+    const viewCompleto = document.getElementById('view-completo');
+    const viewSecuencia = document.getElementById('view-secuencia');
+
+    // Buttons
+    const btnCopy = document.getElementById('btn-copy');
+    const btnCopyText = document.getElementById('btn-copy-text');
+    const btnWhatsapp = document.getElementById('btn-whatsapp');
+
+    // Formatter
+    const formatter = new Intl.NumberFormat('es-CO', {
+      style: 'currency',
+      currency: 'COP',
+      maximumFractionDigits: 0
+    });
+
+    // Tab Logic
+    tabCompleto?.addEventListener('click', () => {
+      viewCompleto?.classList.remove('hidden');
+      viewCompleto?.classList.add('flex');
+      viewSecuencia?.classList.add('hidden');
+      viewSecuencia?.classList.remove('flex');
+      
+      tabCompleto.className = "px-3 py-1.5 text-xs font-semibold rounded-md bg-background shadow-sm text-foreground transition-all";
+      tabSecuencia!.className = "px-3 py-1.5 text-xs font-semibold rounded-md text-muted-foreground hover:text-foreground transition-all";
+    });
+
+    tabSecuencia?.addEventListener('click', () => {
+      viewSecuencia?.classList.remove('hidden');
+      viewSecuencia?.classList.add('flex');
+      viewCompleto?.classList.add('hidden');
+      viewCompleto?.classList.remove('flex');
+
+      tabSecuencia.className = "px-3 py-1.5 text-xs font-semibold rounded-md bg-background shadow-sm text-foreground transition-all";
+      tabCompleto!.className = "px-3 py-1.5 text-xs font-semibold rounded-md text-muted-foreground hover:text-foreground transition-all";
+    });
+
+    function calculate() {
+      const jugadores = parseInt(inpJugadores.value) || 0;
+      const valorJugador = parseInt(inpValor.value) || 0;
+      const cuotaPlataforma = parseInt(inpCuota.value) || 0;
+
+      // Cálculos de planes
+      const mensual = jugadores * valorJugador;
+      const trimestral = mensual * 3 * 0.90;
+      const semestral = mensual * 6 * 0.80;
+      const anual = mensual * 12 * 0.70;
+
+      // Equivalencias
+      const valorAnualJugador = jugadores > 0 ? (anual / jugadores) : 0;
+      const valorMensualJugador = valorAnualJugador / 12;
+
+      // ROI
+      const recaudo = jugadores * cuotaPlataforma;
+      const saldo = recaudo - anual;
+
+      // Actualizar UI - Tarjetas
+      if (outMensual) outMensual.textContent = formatter.format(mensual);
+      if (outTrimestral) outTrimestral.textContent = formatter.format(trimestral);
+      if (outSemestral) outSemestral.textContent = formatter.format(semestral);
+      if (outAnual) outAnual.textContent = formatter.format(anual);
+      
+      if (outAnualJugador) outAnualJugador.innerHTML = `${formatter.format(valorAnualJugador)} <span class="text-sm font-normal">/año</span>`;
+      if (outMensualJugador) outMensualJugador.textContent = `Solo ${formatter.format(valorMensualJugador)} /mes`;
+
+      // Actualizar UI - ROI
+      if (outRecaudo) outRecaudo.textContent = formatter.format(recaudo);
+      if (outCostoPlataforma) outCostoPlataforma.textContent = formatter.format(anual);
+      if (outSaldo) outSaldo.textContent = formatter.format(saldo);
+
+      // --- Generar Mensaje Original ---
+      const mensajeOriginal = `¡Perfecto!
+
+Con ${jugadores} jugadores tienen varias opciones para usar ClubSport Manager.
+
+💰 Mensual
+• ${formatter.format(mensual)} al mes.
+Ideal si desean comenzar pagando mes a mes.
+
+📅 3 meses (10% OFF)
+• ${formatter.format(trimestral)}
+
+📅 6 meses (20% OFF)
+• ${formatter.format(semestral)}
+
+⭐ Nuestra recomendación
+📅 12 meses (30% OFF)
+• ${formatter.format(anual)} por todo el año.
+
+Este es el plan que más conviene porque obtiene el mayor descuento y les permite olvidarse completamente del pago de la plataforma durante toda la temporada.
+
+Muchos clubes aprovechan este plan incluyendo una pequeña cuota de plataforma dentro de la inscripción anual o del inicio de temporada.
+
+De esta manera las familias reciben beneficios como:
+✅ Aplicación para padres
+✅ Estado de pagos
+✅ Historial financiero
+✅ Convocatorias
+✅ Asistencia
+✅ Calendario
+✅ Noticias
+✅ Fotografías
+✅ Comunicación con entrenadores
+✅ Seguimiento del jugador
+✅ Documentos
+✅ Notificaciones en tiempo real
+
+En este caso, el costo anual equivale aproximadamente a ${formatter.format(valorAnualJugador)} por jugador durante todo el año, es decir, cerca de ${formatter.format(valorMensualJugador)} al mes por familia.
+Es un valor muy fácil de integrar dentro de la inscripción o de una cuota administrativa.
+
+💡 Ejemplo de recuperación de la inversión
+Si el club decide cobrar una cuota de plataforma de ${formatter.format(cuotaPlataforma)} por jugador al inicio del año:
+• Recaudaría ${formatter.format(recaudo)}
+El costo anual de ClubSport Manager sería de: ${formatter.format(anual)}
+Quedando un saldo aproximado de: ${formatter.format(saldo)}
+
+Es decir, la plataforma prácticamente se financia sola y además permite profesionalizar la administración del club y mejorar la experiencia de las familias.
+
+¿Te gustaría que agendáramos una demostración de 15 minutos para mostrarte cómo funciona?`;
+
+      if (txtMessage) txtMessage.value = mensajeOriginal;
+
+      // --- Generar Secuencia de 3 Partes ---
+      
+      const msgPart1 = `¡Perfecto! 👌 Gracias por la información.
+
+Con ${jugadores} jugadores, ClubSport Manager les permitirá centralizar los cobros, la asistencia y toda la comunicación con los padres en una sola app.
+
+Lo mejor es que el costo normalmente no lo asume el club. La mayoría lo integra en una pequeña cuota anual o de inscripción, logrando que la plataforma se financie sola.
+
+Te preparé una propuesta personalizada para que veas cómo quedaría en tu caso 👇`;
+
+      const msgPart2 = `💰 Propuesta para ${jugadores} jugadores
+
+• Mensual: ${formatter.format(mensual)}
+• 3 meses (10% OFF): ${formatter.format(trimestral)}
+• 6 meses (20% OFF): ${formatter.format(semestral)}
+⭐ 12 meses (30% OFF): ${formatter.format(anual)}
+
+Este es el plan que más recomiendan nuestros clubes porque obtienen el mayor ahorro y no tienen que preocuparse por renovar durante toda la temporada.`;
+
+      const msgPart3 = `Para que tengas una idea, con el plan anual el costo real es de aproximadamente ${formatter.format(valorAnualJugador)} por jugador durante todo el año, es decir, cerca de ${formatter.format(valorMensualJugador)} al mes por familia.
+
+Por eso muchos clubes incluyen una pequeña cuota de plataforma al inicio de la temporada. Así cubren toda la licencia anual y, al mismo tiempo, ofrecen a los padres beneficios como la app, control de pagos, convocatorias, asistencia, calendario, noticias y comunicación directa con el club.
+
+Si te parece, agendamos una demostración de 15 minutos y te muestro cómo funciona con un club similar al tuyo.`;
+
+      if (txtMsg1) txtMsg1.value = msgPart1;
+      if (txtMsg2) txtMsg2.value = msgPart2;
+      if (txtMsg3) txtMsg3.value = msgPart3;
+    }
+
+    // Listeners
+    [inpJugadores, inpValor, inpCuota].forEach(input => {
+      input.addEventListener('input', calculate);
+    });
+
+    // Copiar al portapapeles (Mensaje Original Completo)
+    btnCopy?.addEventListener('click', () => {
+      if (txtMessage) {
+        txtMessage.select();
+        navigator.clipboard.writeText(txtMessage.value).then(() => {
+          if (btnCopyText) {
+            const originalText = btnCopyText.textContent;
+            btnCopyText.textContent = "¡Copiado!";
+            setTimeout(() => {
+              btnCopyText.textContent = originalText;
+            }, 2000);
+          }
+        });
+      }
+    });
+
+    // Abrir Whatsapp
+    btnWhatsapp?.addEventListener('click', () => {
+      if (txtMessage) {
+        const text = encodeURIComponent(txtMessage.value);
+        window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+      }
+    });
+
+    // Run once on load
+    calculate();
+  });
+</script>
